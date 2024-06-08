@@ -714,9 +714,9 @@ body {
 }
 
 .tab-menu {
-    background: #f5f5f5;
+    /* background: #f5f5f5; */
     padding: 2px 0px;
-    box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.05); */
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -937,6 +937,9 @@ body {
     GALLERY AREA
 -------------------------------------------------------------------*/
 
+.gallery-main{
+    background: #E6E6E6;
+}
 
 .gallery-main .title-caption {
     color: #666;
