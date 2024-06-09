@@ -1727,3 +1727,8 @@ body {
 .vivid-yellow-bg {
     background: #fdcb03;
 }
+
+h6 a{
+    color: #fff;
+    text-decoration: underline;
+}
