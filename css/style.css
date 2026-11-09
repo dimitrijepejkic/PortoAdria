@@ -36,6 +36,7 @@
 -------------------------------------------------------------------*/
 @font-face {
     font-family: 'nautilus_pompiliusregular';
+    font-display: swap;
     src: url('../fonts/nautilus-webfont.woff2') format('woff2'),
         url('../fonts/nautilus-webfont.woff') format('woff');
     font-weight: normal;
@@ -1174,6 +1175,646 @@ body {
 h6 a{
     color: #fff;
     text-decoration: underline;
+}
+
+/*------------------------------------------------------------------
+    BUTTONS (hero, reservation)
+-------------------------------------------------------------------*/
+
+.btn-porto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 190px;
+    height: 50px;
+    margin: 6px;
+    padding: 0 26px;
+    background: #e75b1e;
+    border: 2px solid #e75b1e;
+    color: #fff !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.btn-porto:hover,
+.btn-porto:focus {
+    background: #c94a12;
+    border-color: #c94a12;
+}
+
+.btn-porto .fa {
+    font-size: 20px;
+}
+
+.btn-porto-light {
+    background: transparent;
+    border-color: #fff;
+}
+
+.btn-porto-light:hover,
+.btn-porto-light:focus {
+    background: #fff;
+    border-color: #fff;
+    color: #e75b1e !important;
+}
+
+.btn-porto-outline {
+    background: transparent;
+    color: #e75b1e !important;
+}
+
+.btn-porto-outline:hover,
+.btn-porto-outline:focus {
+    background: #e75b1e;
+    border-color: #e75b1e;
+    color: #fff !important;
+}
+
+.banner-cta {
+    padding-bottom: 10px;
+}
+
+/*------------------------------------------------------------------
+    MENU (Speisekarte as HTML)
+-------------------------------------------------------------------*/
+
+.menu-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px 0 40px;
+    padding: 0;
+}
+
+.menu-nav::before,
+.menu-nav::after {
+    display: none;
+}
+
+.menu-nav > li > a {
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #1f1f1f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.menu-nav > li > a:hover,
+.menu-nav > li > a:focus {
+    background: #f4f4f4;
+}
+
+.menu-nav > li.active > a,
+.menu-nav > li.active > a:hover,
+.menu-nav > li.active > a:focus {
+    background: #e75b1e;
+    border-color: #e75b1e;
+    color: #fff;
+}
+
+.menu-panes {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.menu-panes > .tab-pane {
+    column-count: 2;
+    column-gap: 70px;
+}
+
+.menu-group {
+    margin-bottom: 35px;
+}
+
+.menu-group-title {
+    margin: 0 0 18px;
+    padding: 0;
+    color: #e75b1e;
+    font-family: 'nautilus_pompiliusregular';
+    font-size: 30px;
+    font-weight: bold;
+    break-after: avoid;
+    -webkit-column-break-after: avoid;
+}
+
+.menu-group-sub {
+    margin: -12px 0 14px;
+    color: #888;
+    font-size: 14px;
+}
+
+.menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-item {
+    padding: 0 0 16px;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+
+.menu-item-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.menu-item-name {
+    flex: 0 1 auto;
+    margin: 0;
+    padding: 0;
+    color: #1f1f1f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menu-item-no {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.menu-item-codes {
+    color: #999;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.menu-item-dots {
+    flex: 1 1 auto;
+    min-width: 20px;
+    border-bottom: 1px dotted #bbb;
+    transform: translateY(-4px);
+}
+
+.menu-item-price {
+    flex: 0 0 auto;
+    color: #e75b1e;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.menu-item-desc {
+    margin: 3px 0 0;
+    padding-right: 60px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.menu-group-note {
+    margin: 2px 0 0;
+    color: #888;
+    font-size: 13px;
+    font-style: italic;
+    break-inside: avoid;
+}
+
+.menu-legend {
+    max-width: 640px;
+    margin: 10px auto 0;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+
+.menu-main .tab-menu {
+    margin-top: 25px;
+}
+
+/*------------------------------------------------------------------
+    RESERVATION
+-------------------------------------------------------------------*/
+
+.reservation-main {
+    background: #fff;
+}
+
+.reservation-main .title-caption {
+    color: #666;
+    line-height: 1.7;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px 0 15px;
+}
+
+.reservation-address {
+    color: #666;
+    font-size: 15px;
+}
+
+.reservation-address a {
+    color: #e75b1e;
+}
+
+/*------------------------------------------------------------------
+    GALLERY LIGHTBOX (one shared modal)
+-------------------------------------------------------------------*/
+
+.modal-open .gal-container .gallery-lightbox {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.gal-container .gallery-lightbox .modal-dialog {
+    width: auto;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 70px;
+}
+
+.gal-container .gallery-lightbox .modal-content {
+    height: auto;
+    background: #111;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-figure {
+    margin: 0;
+    text-align: center;
+}
+
+.lightbox-img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100vh - 150px);
+    margin: 0 auto;
+}
+
+.lightbox-caption {
+    padding: 12px 20px 2px;
+    color: #ddd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.lightbox-counter {
+    margin: 0;
+    padding: 0 0 12px;
+    color: #888;
+    font-size: 13px;
+    text-align: center;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    margin-top: -23px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 42px;
+}
+
+.lightbox-nav:hover {
+    background: #e75b1e;
+    border-color: #e75b1e;
+}
+
+.lightbox-prev {
+    left: -62px;
+}
+
+.lightbox-next {
+    right: -62px;
+}
+
+.gallery-lightbox button.close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font-size: 18px;
+    line-height: 26px;
+    opacity: 1;
+    text-shadow: none;
+}
+
+.gallery-lightbox button.close span {
+    position: relative;
+    top: -1px;
+    font-weight: lighter;
+}
+
+/*------------------------------------------------------------------
+    MISC
+-------------------------------------------------------------------*/
+
+/* readable opening hours on the dark footer (was #666: too low contrast) */
+.footer-box-d ul li span {
+    color: #c4c4c4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-cell .mouse:after,
+    .wow {
+        -webkit-animation: none !important;
+        animation: none !important;
+    }
+
+    .modal.fade .modal-dialog,
+    .gal-container .modal.fade .modal-dialog {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+}
+
+/*------------------------------------------------------------------
+    COOKIE CONSENT BANNER (js/consent.js)
+-------------------------------------------------------------------*/
+
+.cc-banner {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    padding: 20px 15px;
+    background: #1a1a1a;
+    border-top: 3px solid #e75b1e;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35);
+    color: #e6e6e6;
+    font-family: 'Roboto', sans-serif;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.cc-banner.cc-visible {
+    display: block;
+}
+
+.cc-banner:focus {
+    outline: none;
+}
+
+.cc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cc-title {
+    margin: 0 0 6px;
+    color: #fff;
+    font-family: 'nautilus_pompiliusregular';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cc-text {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.cc-banner a {
+    color: #ff8a4f;
+    text-decoration: underline !important;
+}
+
+.cc-details {
+    margin: 0 0 14px;
+}
+
+.cc-cat {
+    padding: 10px 0;
+    border-top: 1px solid #333;
+}
+
+.cc-cat p {
+    margin: 4px 0 0 26px;
+    color: #bdbdbd;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.cc-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cc-switch input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #e75b1e;
+}
+
+.cc-switch em {
+    color: #999;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.cc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cc-btn {
+    min-width: 170px;
+    height: 44px;
+    padding: 0 20px;
+    background: #e75b1e;
+    border: 2px solid #e75b1e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cc-btn:hover {
+    background: #c94a12;
+    border-color: #c94a12;
+}
+
+.cc-btn-plain {
+    background: transparent;
+    border-color: #777;
+}
+
+.cc-btn-plain:hover {
+    background: #333;
+    border-color: #999;
+}
+
+@media (max-width: 767px) {
+    .cc-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cc-btn {
+        width: 100%;
+    }
+}
+
+/*------------------------------------------------------------------
+    LEGAL LINKS (footer) + LEGAL PAGES
+-------------------------------------------------------------------*/
+
+.legal-links {
+    margin: 8px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.legal-links a,
+.legal-links button {
+    padding: 0;
+    background: none;
+    border: 0;
+    color: #fff;
+    font: inherit;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.legal-links .sep {
+    margin: 0 8px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.legal-header {
+    padding: 15px 0;
+    background: #202020;
+}
+
+.legal-header .container {
+    max-width: 850px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.legal-header img {
+    width: 220px;
+    height: auto;
+}
+
+.legal-header .back-link {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.legal-header .back-link:hover {
+    color: #e75b1e;
+}
+
+.legal-main {
+    padding: 60px 0 70px;
+    background: #fff;
+}
+
+.legal-content {
+    max-width: 820px;
+    margin: 0 auto;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.legal-content h1 {
+    margin-bottom: 25px;
+    color: #e75b1e;
+    font-family: 'nautilus_pompiliusregular';
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.legal-content h2 {
+    margin: 35px 0 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.legal-content h3 {
+    margin: 22px 0 6px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.legal-content p,
+.legal-content ul {
+    margin: 0 0 12px;
+}
+
+.legal-content ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.legal-content li {
+    list-style: disc;
+}
+
+.legal-content a {
+    color: #e75b1e;
+    text-decoration: underline !important;
+}
+
+.legal-content .todo {
+    padding: 1px 4px;
+    background: #fff3cd;
+    color: #8a5a00;
+}
+
+.legal-footer {
+    padding: 25px 0;
+    background: #111;
+    color: #fff;
+    text-align: center;
 }
 
 /*------------------------------------------------------------------

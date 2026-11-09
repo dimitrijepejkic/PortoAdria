@@ -4,6 +4,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic-ext.woff2) format('woff2');
@@ -13,6 +14,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic.woff2) format('woff2');
@@ -22,6 +24,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek-ext.woff2) format('woff2');
@@ -31,6 +34,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek.woff2) format('woff2');
@@ -40,6 +44,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-math.woff2) format('woff2');
@@ -49,6 +54,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-symbols.woff2) format('woff2');
@@ -58,6 +64,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-vietnamese.woff2) format('woff2');
@@ -67,6 +74,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin-ext.woff2) format('woff2');
@@ -76,6 +84,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 300;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin.woff2) format('woff2');
@@ -85,6 +94,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic-ext.woff2) format('woff2');
@@ -94,6 +104,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic.woff2) format('woff2');
@@ -103,6 +114,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek-ext.woff2) format('woff2');
@@ -112,6 +124,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek.woff2) format('woff2');
@@ -121,6 +134,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-math.woff2) format('woff2');
@@ -130,6 +144,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-symbols.woff2) format('woff2');
@@ -139,6 +154,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-vietnamese.woff2) format('woff2');
@@ -148,6 +164,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin-ext.woff2) format('woff2');
@@ -157,6 +174,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin.woff2) format('woff2');
@@ -166,6 +184,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic-ext.woff2) format('woff2');
@@ -175,6 +194,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic.woff2) format('woff2');
@@ -184,6 +204,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek-ext.woff2) format('woff2');
@@ -193,6 +214,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek.woff2) format('woff2');
@@ -202,6 +224,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-math.woff2) format('woff2');
@@ -211,6 +234,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-symbols.woff2) format('woff2');
@@ -220,6 +244,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-vietnamese.woff2) format('woff2');
@@ -229,6 +254,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin-ext.woff2) format('woff2');
@@ -238,6 +264,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin.woff2) format('woff2');
@@ -247,6 +274,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic-ext.woff2) format('woff2');
@@ -256,6 +284,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic.woff2) format('woff2');
@@ -265,6 +294,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek-ext.woff2) format('woff2');
@@ -274,6 +304,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek.woff2) format('woff2');
@@ -283,6 +314,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-math.woff2) format('woff2');
@@ -292,6 +324,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-symbols.woff2) format('woff2');
@@ -301,6 +334,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-vietnamese.woff2) format('woff2');
@@ -310,6 +344,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin-ext.woff2) format('woff2');
@@ -319,6 +354,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin.woff2) format('woff2');
@@ -328,6 +364,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic-ext.woff2) format('woff2');
@@ -337,6 +374,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-cyrillic.woff2) format('woff2');
@@ -346,6 +384,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek-ext.woff2) format('woff2');
@@ -355,6 +394,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-greek.woff2) format('woff2');
@@ -364,6 +404,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-math.woff2) format('woff2');
@@ -373,6 +414,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-symbols.woff2) format('woff2');
@@ -382,6 +424,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-vietnamese.woff2) format('woff2');
@@ -391,6 +434,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin-ext.woff2) format('woff2');
@@ -400,6 +444,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
+  font-display: swap;
   font-weight: 900;
   font-stretch: 100%;
   src: url(../fonts/roboto/roboto-latin.woff2) format('woff2');

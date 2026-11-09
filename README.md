@@ -25,7 +25,10 @@ GitHub Pages serves the `master` branch; the custom domain is set in `CNAME`.
 | `css/` | Bootstrap 3.3.7, Font Awesome 4, normalize, animate.css, `fonts.css` (self-hosted Roboto), `style.css`, `responsive.css`, `colors/orange.css`. The order of the `<link>` tags in `index.html` matters. |
 | `js/all.js` | jQuery 3.7.1 + Typer (headline animation) + WOW 1.1.3 (fade-ins) |
 | `js/bootstrap.min.js` | Bootstrap 3.4.1 JS (navbar collapse, modal, scrollspy) |
-| `js/custom.js` | Smooth scroll, scrollspy, sticky header, nav state, gallery image warm-up, WOW init |
+| `js/custom.js` | Smooth scroll, scrollspy, sticky header, nav state, menu tabs, gallery lightbox, WOW init |
+| `js/consent.js` | Cookie consent: loads Google Analytics **only after opt-in** (basic Consent Mode), withdrawal via "Cookie-Einstellungen" |
+| `impressum.html`, `datenschutz.html` | Legal pages (drafts: yellow `[BITTE ERGÄNZEN]` placeholders must be filled before going live) |
+| `tools/menu_build.py` | Source of the HTML menu (`#menu`): edit the data there and run it to regenerate the section |
 | `fonts/` | Nautilus (headings), Roboto (body), Font Awesome, Glyphicons (gallery zoom icon) |
 | `images/` | Full-size photos (used in the gallery pop-ups) |
 | `images/thumbs/` | 760 px wide versions for the gallery grid and the about image |
@@ -45,7 +48,9 @@ The hours appear in the footer of `index.html` **and** on the poster image `imag
 Keep them consistent. Once they're settled, add `openingHoursSpecification` to the JSON-LD block in `<head>`.
 
 ### Update the menu
-Replace `images/Menu.pdf` (keep the file name). Keep it small: export or compress it for screen use (well under 1 MB).
+The menu exists twice: as HTML on the page and as `images/Menu.pdf`.
+1. Edit the dishes and prices in `tools/menu_build.py` and run `python tools/menu_build.py index.html`.
+2. Replace `images/Menu.pdf` (keep the file name). Keep it small: export or compress it for screen use (well under 1 MB).
 
 ## Open items (as of 2026-11-09)
 
@@ -60,6 +65,14 @@ Replace `images/Menu.pdf` (keep the file name). Keep it small: export or compres
    - Google Analytics (`G-PEY0WJDTB4`) loads without consent.
    - See `WEBSITE_AUDIT_REPORT.md`, finding S-01.
 4. "Developed by: D.P" in the footer links to `#` (no target yet).
+5. **Before merging to `master`:** fill in the placeholders in `impressum.html` and `datenschutz.html` (owner name,
+   legal form, USt-IdNr., GA retention period) and have both texts checked.
+6. **Google Analytics admin settings** (property `G-PEY0WJDTB4`), to match the Datenschutzerklärung:
+   - Data retention: 2 months
+   - Google Signals: off
+   - Accept the data processing terms
+7. Menu: the PDF has no legend for the additive and allergen codes (e.g. "9,3", "c"). The page says
+   "Übersicht beim Personal"; ideally add the legend to the menu (HTML and PDF).
 
 ## Visual regression check (before merging any change)
 

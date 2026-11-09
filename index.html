@@ -1,7 +1,5 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<!DOCTYPE html>
+<html lang="de">
 
 <head>
 
@@ -26,7 +24,10 @@
     <meta property="og:description"
         content="Balkanküche, Steak- &amp; Filetspezialitäten, Fisch und vegetarische Gerichte in Waabs.">
     <meta property="og:url" content="https://portoadria.de/">
-    <meta property="og:image" content="https://portoadria.de/images/banner.jpg">
+    <meta property="og:image" content="https://portoadria.de/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Restaurant Porto Adria – Genuss aus dem Balkan">
     <meta property="og:locale" content="de_DE">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,7 +44,8 @@
         "telephone": "+49 4352 9549029",
         "email": "porto.adria@mail.de",
         "servesCuisine": "Balkanküche",
-        "hasMenu": "https://portoadria.de/images/Menu.pdf",
+        "hasMenu": "https://portoadria.de/#menu",
+        "acceptsReservations": true,
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Dorfstraße 21",
@@ -69,6 +71,9 @@
     <link rel="preload" as="font" type="font/woff2" href="fonts/roboto/roboto-latin.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="fonts/nautilus-webfont.woff2" crossorigin>
 
+    <!-- Cookie consent: loads Google Analytics only after opt-in -->
+    <script src="js/consent.js" defer></script>
+
     <!-- Stylesheets: order matters (same cascade order as the former @import chain) -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -82,15 +87,6 @@
 </head>
 
 <body>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEY0WJDTB4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PEY0WJDTB4');
-    </script>
     <div id="site-header">
         <header id="header" class="header-block-top">
             <div class="container">
@@ -144,6 +140,10 @@
                                     data-words="Freunde:Familie:Kollegen" data-colors="red" aria-hidden="true"></span><span class="cursor"
                                     data-cursorDisplay="_" data-owner="some-id" aria-hidden="true"></span><span class="sr-only">Freunden, Familie und Kollegen</span></h1>
                             <h2>Genuss aus dem Balkan</h2>
+                            <div class="banner-cta">
+                                <a class="btn-porto" href="#menu">Speisekarte</a>
+                                <a class="btn-porto btn-porto-light" href="#reservierung">Tisch reservieren</a>
+                            </div>
                             <a href="#about" aria-label="Weiter zu Über uns">
                                 <div class="mouse"></div>
                             </a>
@@ -218,13 +218,585 @@
                             Unsere Speisekarte
                         </h2>
                         <p class="title-caption text-center">
-                            Wenn Sie unsere Speisekarte sehen möchten, klicken Sie auf die Schaltfläche unten:
+                            Frisch zubereitet mit dem Geschmack des Balkans. Wählen Sie eine Kategorie:
                         </p>
                     </div>
-                    <div class="tab-menu">
-                        <a href="images/Menu.pdf" download="Speisekarte-Porto-Adria.pdf" aria-label="Speisekarte Download (PDF)">Speisekarte Download</a>
+                    <div class="menu-tabs">
+                        <ul class="nav menu-nav" role="tablist">
+                            <li role="presentation" class="active"><a href="#m-vorspeisen" aria-controls="m-vorspeisen" role="tab" data-toggle="tab" aria-selected="true">Suppen &amp; Vorspeisen</a></li>
+                            <li role="presentation"><a href="#m-salate" aria-controls="m-salate" role="tab" data-toggle="tab" aria-selected="false">Salate</a></li>
+                            <li role="presentation"><a href="#m-grill" aria-controls="m-grill" role="tab" data-toggle="tab" aria-selected="false">Vom Grill</a></li>
+                            <li role="presentation"><a href="#m-gyros" aria-controls="m-gyros" role="tab" data-toggle="tab" aria-selected="false">Gyros &amp; Platten</a></li>
+                            <li role="presentation"><a href="#m-schnitzel" aria-controls="m-schnitzel" role="tab" data-toggle="tab" aria-selected="false">Schnitzel &amp; Backofen</a></li>
+                            <li role="presentation"><a href="#m-fisch" aria-controls="m-fisch" role="tab" data-toggle="tab" aria-selected="false">Fisch &amp; Steaks</a></li>
+                            <li role="presentation"><a href="#m-pizza" aria-controls="m-pizza" role="tab" data-toggle="tab" aria-selected="false">Pizza</a></li>
+                            <li role="presentation"><a href="#m-kinder" aria-controls="m-kinder" role="tab" data-toggle="tab" aria-selected="false">Kinder &amp; Beilagen</a></li>
+                            <li role="presentation"><a href="#m-dessert" aria-controls="m-dessert" role="tab" data-toggle="tab" aria-selected="false">Dessert</a></li>
+                        </ul>
+                        <div class="tab-content menu-panes">
+                            <div role="tabpanel" class="tab-pane fade in active" id="m-vorspeisen">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Unsere hausgemachten Suppen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">01.</span> Montenegro Suppe <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">9,3</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">5,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Hühnersuppe mit Gemüse</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">02.</span> Pasulj <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">9,3</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">6,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Bohnensuppe „Balkanart“ mit Fleischbeilage</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Kalte Vorspeisen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">04.</span> Tzatziki</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">5,50 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">hausgemacht</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">06.</span> Oliven &amp; Peperoni <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">10</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">6,50 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mild</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Warme Vorspeisen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">07.</span> Mese-Teller <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">10</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">16,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">buntes, mediterranes Gemüse, goldbraun panierter Käse</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">09.</span> Panierter Schafskäse <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">10</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">9,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Oliven &amp; Peperoni</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">10.</span> Gebackener Fetakäse</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">9,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit frischen Tomaten und Zwiebeln</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-salate">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Frische Salate mit Joghurtdressing</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">12.</span> Adria Salat</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">15,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Gemischter Salat mit Hähnchenstreifen oder Gyros</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">13.</span> Schopska Salat</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">14,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Gemischter Salat mit geriebenem Fetakäse</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">14.</span> Salat des Hauses</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">15,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Gemischter Salat mit Thunfisch</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-grill">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Spezialitäten vom Grill</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">17.</span> Cevapcici</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Hackfleischröllchen mit frischen Zwiebeln, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">18.</span> Pljeskavica</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Saftiges Hacksteak mit Feta oder Gouda gefüllt, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">19.</span> Pljeskavica in Metaxa Sauce</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">20,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Saftiges Hacksteak mit Feta gefüllt, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">20.</span> Balkanleber „nach Bauern Art“</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">gegrillte Leber mit gebratenen Zwiebeln und Paprika, dazu Wedges</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">21.</span> Rinderleber in Metaxasauce</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">gegrillte Leber, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">22.</span> Raznjici</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Fleischspieße, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">23.</span> Fleischspieße „nach Bauern Art“</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">20,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Fleischspieße mit gerösteten Zwiebeln und Paprika, dazu Wedges</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">24.</span> Fleischspieße „Metaxa“</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">20,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Fleischspieße mit Metaxa Sauce, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">25.</span> Hähnchenbrustfilet „Metaxa“</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">21,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Metaxa Sauce, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">31.</span> Gegrilltes Hähnchenbrustfilet</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">34.</span> Lammkotelett</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">24,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat, Brot und unsere hausgemachten Saucen.</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-gyros">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Gyros Spezialitäten</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">35.</span> Gyros</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">17,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">36.</span> Gyros in Metaxasauce</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Käse überbacken, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">38.</span> Gyros mit gerösteten Zwiebeln und Paprika</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">20,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Wedges</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">39.</span> Gyros und Raznjici</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">21,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Für den großen Hunger</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">44.</span> Adria Teller</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">22,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Raznjici, Pljeskavica, Leber, Gyros, dazu Djuvec Reis und Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">45.</span> Dubrovnik Teller</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">23,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Cevapcici, Lammkotelett, Hähnchenfilet, Gyros, dazu Djuvec Reis und Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">46.</span> Pola-Pola</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">21,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Fleischspieß &amp; 5 Cevapcici, dazu Djuvec Reis und Pommes</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Party Platten</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">62.</span> Jadran-Gourmet Platte <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">1,9</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">25,90 € pro Person</span>
+                                            </div>
+                                            <p class="menu-item-desc">Panierte Schnitzel, Gyros, Lammkotelett, Cevapcici, Pljeskavica, dazu Wedges, Djuvec Reis &amp; Schopska Salat</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-schnitzel">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Schnitzel</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">1003.</span> Cordon Bleu <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">c</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">21,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Paniertes Hähnchenschnitzel gefüllt mit Käse und Schinken, auf Sauce Hollandaise, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">51.</span> Paniertes Hähnchenschnitzel <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">c</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">19,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Spezialitäten aus dem Backofen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">65.</span> Hähnchenbrustfilet <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">9</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">21,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">überbacken mit Sauce Hollandaise, dazu Grillgemüse &amp; Djuvec Reis</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">66.</span> Mix Pfanne <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">9</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">23,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Feine Rinder- und Hähnchenbrust, überbacken mit Sauce Hollandaise, dazu Grillgemüse &amp; Wedges</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen kleinen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-fisch">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Fischspezialitäten</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">54.</span> Calamares <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">d</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">22,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">paniert oder gegrillt, dazu frisches Grillgemüse und Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">55.</span> Gegrillte Garnelenspieße <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">b</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">23,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">auf Grillgemüse &amp; Knoblauchmarinade, dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">555.</span> Gegrillter Lachs <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">d</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">23,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">auf Grillgemüse, dazu Wedges</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">53.</span> Fischteller <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">d</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">29,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Garnelen, Lachs, gegrillter Calamares, dazu Grillgemüse &amp; Wedges</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Steaks</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">56.</span> Rumpsteak <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">3</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">28,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Wedges und Kräuterbutter</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">57.</span> Rumpsteak in Metaxa <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">3</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">29,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Wedges</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">58.</span> Rumpsteak mit gerösteten Zwiebeln und Champignons <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">3</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">29,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Wedges und Kräuterbutter</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen frischen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-pizza">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Pizza aus dem Steinofen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">51.</span> Pizza Margherita</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">12,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Tomatensauce und Mozzarella</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">52.</span> Pizza Salami</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">14,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Tomatensauce, Mozzarella und Salami</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">53.</span> Pizza Tuna</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">15,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Thunfisch und Zwiebeln</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">54.</span> Pizza Vegetaria</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">15,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Grillgemüse</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">55.</span> Pizza Gyros</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">16,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">mit Gyros Fleisch</p>
+                                        </li>
+                                    </ul>
+                                    <p class="menu-group-note">Zu allen Gerichten servieren wir Ihnen einen kleinen Salat und unsere hausgemachten Saucen.</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-kinder">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Für unsere kleinen Gäste</h3>
+                                    <p class="menu-group-sub">bis 14 Jahre</p>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">70.</span> Mini Gyros</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">9,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">71.</span> Chicken Nuggets</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">9,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">dazu Pommes</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">58.</span> Mini Pljeskavica</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">9,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">Hacksteak, dazu Pommes</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Beilagen</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">74.</span> Pommes</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">3,90 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">75.</span> Djuvec Reis</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">3,90 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">76.</span> Brot <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">1</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">2,00 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">77.</span> Wedges</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">3,90 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name"><span class="menu-item-no">80.</span> Metaxa- oder Rahmsauce <sup class="menu-item-codes" title="Kennzeichnung (Zusatzstoffe / Allergene)">9,6</sup></h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">3,00 €</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="m-dessert">
+                                <div class="menu-group">
+                                    <h3 class="menu-group-title">Dessert</h3>
+                                    <ul class="menu-list">
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name">Schokoladensoufflé mit flüssigem Kern</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">7,90 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name">Tartufo</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">7,90 €</span>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name">Eisbecher</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">5,90 €</span>
+                                            </div>
+                                            <p class="menu-item-desc">3 Kugeln, Sahne</p>
+                                        </li>
+                                        <li class="menu-item">
+                                            <div class="menu-item-head">
+                                                <h4 class="menu-item-name">Palacinke mit Schokocreme</h4>
+                                                <span class="menu-item-dots" aria-hidden="true"></span>
+                                                <span class="menu-item-price">7,90 €</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="menu-legend">Die hochgestellten Zahlen und Buchstaben kennzeichnen Zusatzstoffe und Allergene.
+                            Eine Übersicht erhalten Sie gerne bei unserem Personal. Alle Preise in Euro inkl. MwSt.</p>
                     </div>
-                    <!-- end tab-menu -->
+                    <div class="tab-menu">
+                        <a href="images/Menu.pdf" download="Speisekarte-Porto-Adria.pdf" aria-label="Speisekarte als PDF herunterladen">Speisekarte als PDF</a>
+                    </div>
                 </div>
                 <!-- end col -->
             </div>
@@ -250,481 +822,236 @@
                     <div class="gal-container clearfix">
                         <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-1">
+                                <a href="images/portoGalerry.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGalerry.jpg" srcset="images/thumbs/portoGalerry.jpg 760w, images/portoGalerry.jpg 1179w"
                                         sizes="(min-width: 1200px) 750px, (min-width: 992px) 630px, 100vw"
                                         alt="Lachs mit gegrilltem Gemüse und Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-1" tabindex="-1" role="dialog" aria-label="Lachs mit gegrilltem Gemüse und Reis">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGalerry.jpg" alt="Lachs mit gegrilltem Gemüse und Reis" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-2">
+                                <a href="images/dno.jpg" class="gal-link">
                                     <img src="images/thumbs/dno.jpg" srcset="images/thumbs/dno.jpg 760w, images/dno.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Gemischte Fleischplatte" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-2" tabindex="-1" role="dialog" aria-label="Gemischte Fleischplatte">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/dno.jpg" alt="Gemischte Fleischplatte" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-3">
+                                <a href="images/portoGallery2.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery2.jpg" srcset="images/thumbs/portoGallery2.jpg 760w, images/portoGallery2.jpg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Brot mit Soßen und Dips" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-3" tabindex="-1" role="dialog" aria-label="Brot mit Soßen und Dips">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery2.jpg" alt="Brot mit Soßen und Dips" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-4">
+                                <a href="images/cevapi.jpg" class="gal-link">
                                     <img src="images/thumbs/cevapi.jpg" srcset="images/thumbs/cevapi.jpg 760w, images/cevapi.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Ćevapi mit Zwiebeln und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-4" tabindex="-1" role="dialog" aria-label="Ćevapi mit Zwiebeln und Pommes">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/cevapi.jpg" alt="Ćevapi mit Zwiebeln und Pommes" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-5">
+                                <a href="images/portoGallery4.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery4.jpg" srcset="images/thumbs/portoGallery4.jpg 760w, images/portoGallery4.jpg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Schnaps / Rakija" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-5" tabindex="-1" role="dialog" aria-label="Schnaps / Rakija">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery4.jpg" alt="Schnaps / Rakija" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-6">
+                                <a href="images/portoGallery5.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery5.jpg" srcset="images/thumbs/portoGallery5.jpg 760w, images/portoGallery5.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-6" tabindex="-1" role="dialog" aria-label="Fleisch mit Soße und Pommes">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery5.jpg" alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-7">
+                                <a href="images/portoGallery6.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery6.jpg" srcset="images/thumbs/portoGallery6.jpg 760w, images/portoGallery6.jpg 1536w"
                                         sizes="(min-width: 1200px) 750px, (min-width: 992px) 630px, 100vw"
                                         alt="Fleisch mit heller Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-7" tabindex="-1" role="dialog" aria-label="Fleisch mit heller Soße und Pommes">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery6.jpg" alt="Fleisch mit heller Soße und Pommes" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-8">
+                                <a href="images/portoGallery7.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery7.jpg" srcset="images/thumbs/portoGallery7.jpg 760w, images/portoGallery7.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Frittierter Käse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-8" tabindex="-1" role="dialog" aria-label="Frittierter Käse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery7.jpg" alt="Frittierter Käse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-9">
+                                <a href="images/portoGallery8.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery8.jpg" srcset="images/thumbs/portoGallery8.jpg 760w, images/portoGallery8.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Gegrilltes Gemüse mit Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-9" tabindex="-1" role="dialog" aria-label="Gegrilltes Gemüse mit Reis">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery8.jpg" alt="Gegrilltes Gemüse mit Reis" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-10">
+                                <a href="images/portoGallery9.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery9.jpg" srcset="images/thumbs/portoGallery9.jpg 760w, images/portoGallery9.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Hähnchen mit Pommes und Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-10" tabindex="-1" role="dialog" aria-label="Hähnchen mit Pommes und Gemüse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery9.jpg" alt="Hähnchen mit Pommes und Gemüse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-11">
+                                <a href="images/portoGallery10.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery10.jpg" srcset="images/thumbs/portoGallery10.jpg 760w, images/portoGallery10.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Gegrilltes Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-11" tabindex="-1" role="dialog" aria-label="Gegrilltes Gemüse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery10.jpg" alt="Gegrilltes Gemüse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-12">
+                                <a href="images/portoGallery11.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery11.jpg" srcset="images/thumbs/portoGallery11.jpg 760w, images/portoGallery11.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-12" tabindex="-1" role="dialog" aria-label="Fleisch mit Soße und Pommes">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery11.jpg" alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-13">
+                                <a href="images/portoGallery12.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery12.jpg" srcset="images/thumbs/portoGallery12.jpg 760w, images/portoGallery12.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch mit Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-13" tabindex="-1" role="dialog" aria-label="Fleisch mit Pommes">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery12.jpg" alt="Fleisch mit Pommes" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-14">
+                                <a href="images/portoGallery13.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery13.jpg" srcset="images/thumbs/portoGallery13.jpg 760w, images/portoGallery13.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch mit Zwiebeln und Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-14" tabindex="-1" role="dialog" aria-label="Fleisch mit Zwiebeln und Reis">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery13.jpg" alt="Fleisch mit Zwiebeln und Reis" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-15">
+                                <a href="images/portoGallery14.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery14.jpg" srcset="images/thumbs/portoGallery14.jpg 760w, images/portoGallery14.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch in Soße" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-15" tabindex="-1" role="dialog" aria-label="Fleisch in Soße">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery14.jpg" alt="Fleisch in Soße" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-16">
+                                <a href="images/portoGallery15.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery15.jpg" srcset="images/thumbs/portoGallery15.jpg 760w, images/portoGallery15.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Hähnchenfleisch mit Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-16" tabindex="-1" role="dialog" aria-label="Hähnchenfleisch mit Gemüse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery15.jpg" alt="Hähnchenfleisch mit Gemüse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-17">
+                                <a href="images/portoGallery16.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery16.jpg" srcset="images/thumbs/portoGallery16.jpg 760w, images/portoGallery16.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Salat mit Paprika und Käse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-17" tabindex="-1" role="dialog" aria-label="Salat mit Paprika und Käse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery16.jpg" alt="Salat mit Paprika und Käse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-18">
+                                <a href="images/portoGallery17.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery17.jpg" srcset="images/thumbs/portoGallery17.jpg 760w, images/portoGallery17.jpg 1536w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Fleisch und Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-18" tabindex="-1" role="dialog" aria-label="Fleisch und Gemüse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery17.jpg" alt="Fleisch und Gemüse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-19">
+                                <a href="images/portoGallery18.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGallery18.jpg" srcset="images/thumbs/portoGallery18.jpg 760w, images/portoGallery18.jpg 945w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Salat" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-19" tabindex="-1" role="dialog" aria-label="Salat">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGallery18.jpg" alt="Salat" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-20">
+                                <a href="images/portoAdriaBalcony.jpg" class="gal-link">
                                     <img src="images/thumbs/portoAdriaBalcony.jpg" srcset="images/thumbs/portoAdriaBalcony.jpg 760w, images/portoAdriaBalcony.jpg 2048w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Festzelt mit gedeckten Tischen im Außenbereich" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-20" tabindex="-1" role="dialog" aria-label="Festzelt mit gedeckten Tischen im Außenbereich">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoAdriaBalcony.jpg" alt="Festzelt mit gedeckten Tischen im Außenbereich" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-21">
+                                <a href="images/portoGarden.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGarden.jpg" srcset="images/thumbs/portoGarden.jpg 760w, images/portoGarden.jpg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Terrasse mit Sonnenschirmen bei Sonnenschein" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-21" tabindex="-1" role="dialog" aria-label="Terrasse mit Sonnenschirmen bei Sonnenschein">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGarden.jpg" alt="Terrasse mit Sonnenschirmen bei Sonnenschein" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-22">
+                                <a href="images/portoGarden1.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGarden1.jpg" srcset="images/thumbs/portoGarden1.jpg 760w, images/portoGarden1.jpg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Terrasse mit Sonnenschirmen und Lichterketten am Abend" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-22" tabindex="-1" role="dialog" aria-label="Terrasse mit Sonnenschirmen und Lichterketten am Abend">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGarden1.jpg" alt="Terrasse mit Sonnenschirmen und Lichterketten am Abend" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-23">
+                                <a href="images/portoGarden2.jpg" class="gal-link">
                                     <img src="images/thumbs/portoGarden2.jpg" srcset="images/thumbs/portoGarden2.jpg 760w, images/portoGarden2.jpg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Restaurant Porto Adria von außen am Abend" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-23" tabindex="-1" role="dialog" aria-label="Restaurant Porto Adria von außen am Abend">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGarden2.jpg" alt="Restaurant Porto Adria von außen am Abend" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#gal-24">
+                                <a href="images/portoGarden3.jpeg" class="gal-link">
                                     <img src="images/thumbs/portoGarden3.jpg" srcset="images/thumbs/portoGarden3.jpg 760w, images/portoGarden3.jpeg 1179w"
                                         sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
                                         alt="Gedeckte Tische im Zelt auf der Terrasse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="gal-24" tabindex="-1" role="dialog" aria-label="Gedeckte Tische im Zelt auf der Terrasse">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="images/portoGarden3.jpeg" alt="Gedeckte Tische im Zelt auf der Terrasse" loading="lazy" decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- one shared lightbox for the whole gallery (filled by js/custom.js) -->
+                        <div class="modal fade gallery-lightbox" id="gallery-lightbox" tabindex="-1" role="dialog"
+                            aria-label="Bildergalerie">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Schließen"><span aria-hidden="true">×</span></button>
+                                    <figure class="lightbox-figure">
+                                        <img class="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                        <figcaption class="lightbox-caption"></figcaption>
+                                    </figure>
+                                    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Vorheriges Bild"><i
+                                            class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                    <button type="button" class="lightbox-nav lightbox-next" aria-label="Nächstes Bild"><i
+                                            class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <p class="lightbox-counter" aria-live="polite"></p>
                                 </div>
                             </div>
                         </div>
@@ -738,6 +1065,37 @@
         <!-- end container -->
     </div>
     <!-- end gallery-main -->
+
+    <div id="reservierung" class="reservation-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">Reservierung</h2>
+                        <p class="title-caption text-center">
+                            Reservierungen nehmen wir gerne per WhatsApp oder E-Mail entgegen.<br>
+                            Sie möchten feiern? Ab 20 Personen sind wir an jedem Tag für Sie da.
+                        </p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="btn-porto" href="https://wa.me/4915252593884?text=Hallo%20Porto%20Adria%2C%20ich%20m%C3%B6chte%20gerne%20einen%20Tisch%20reservieren." target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                        </a>
+                        <a class="btn-porto" href="mailto:porto.adria@mail.de?subject=Reservierung">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> E-Mail
+                        </a>
+                        <a class="btn-porto btn-porto-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant%20Porto%20Adria%2C%20Dorfstra%C3%9Fe%2021%2C%2024369%20Waabs" target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i> Route planen
+                        </a>
+                    </div>
+                    <p class="reservation-address">
+                        Dorfstraße 21 · 24369 Waabs · Telefon <a href="tel:+4943529549029">+49 4352 9549029</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end reservierung -->
 
 
     <div id="footer" class="footer-main">
@@ -830,6 +1188,11 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <h6 class="copy-title"> Copyright &copy; 2026. Porto Adria. <a href="#">Developed by: D.P</a>
                             </h6>
+                            <p class="legal-links">
+                                <a href="impressum.html">Impressum</a><span class="sep" aria-hidden="true">·</span>
+                                <a href="datenschutz.html">Datenschutz</a><span class="sep" aria-hidden="true">·</span>
+                                <button type="button" data-consent-open>Cookie-Einstellungen</button>
+                            </p>
                         </div>
                     </div>
                     <!-- end row -->

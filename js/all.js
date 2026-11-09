@@ -112,6 +112,17 @@ Cursor.prototype.updateBlinkState = function() {
 }
 
 function TyperSetup() {
+  // Respect "reduce motion": show the first word statically, no typing or blinking cursor.
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var still = document.getElementsByClassName("typer");
+    for (var r = 0; r < still.length; r++) {
+      var delim = still[r].dataset.delim || ",";
+      still[r].innerHTML = (still[r].dataset.words || "").split(delim)[0];
+    }
+    var cursors = document.getElementsByClassName("cursor");
+    for (var c = 0; c < cursors.length; c++) { cursors[c].style.display = "none"; }
+    return;
+  }
   var typers = {};
   var elements = document.getElementsByClassName("typer");
   for (var i = 0, e; e = elements[i++];) {
