@@ -1,309 +1,258 @@
 /******************************************
 	File Name: custom.js
-	Template Name: Landigoo
-	Created By: MelodyThemes
-	Envato Profile: http://themeforest.net/user/melodythemes
-	Website: https://melodythemes.com
-	Version: 1.0
+	Site behaviour for portoadria.de:
+	smooth scrolling, scrollspy, sticky header, nav state,
+	menu tabs, gallery lightbox, WOW fade-ins.
 /****************************************** */
 
 (function ($) {
 	"use strict";
 
+	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 	/* ==============================================
-		SMOOTH SCROLL 
+		SMOOTH SCROLL (in-page anchors; not tabs/modals)
 	=============================================== */
-	$('a[href*=#]:not([href=#])').click(function () {
+	$('a[href*="#"]:not([href="#"]):not([data-toggle])').on('click', function () {
 		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
 			|| location.hostname == this.hostname) {
 
 			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+			target = target.length ? target : $('[name="' + this.hash.slice(1) + '"]');
 			if (target.length) {
 				$('html,body').animate({
 					scrollTop: target.offset().top
-				}, 1000);
+				}, reduceMotion ? 0 : 1000);
 				return false;
 			}
 		}
 	});
+
 	// Activate scrollspy to add active class to navbar items on scroll
 	$('body').scrollspy({
 		target: '#mainNav',
 		offset: 54
 	});
+
 	/* =========================
-		SCROLL MENU
+		SCROLL MENU (sticky header)
 	=========================*/
-	$(window).on('scroll', function () {
-		if ($(window).scrollTop() > 50) {
-			$('.header-block-top').addClass('fixed-menu');
-		} else {
-			$('.header-block-top').removeClass('fixed-menu');
+	var $header = $('.header-block-top');
+	var headerFixed = $header.hasClass('fixed-menu');
+	window.addEventListener('scroll', function () {
+		var shouldBeFixed = (window.pageYOffset || document.documentElement.scrollTop) > 50;
+		if (shouldBeFixed !== headerFixed) {
+			headerFixed = shouldBeFixed;
+			$header.toggleClass('fixed-menu', shouldBeFixed);
 		}
-	});
+	}, { passive: true });
 
 	/* =========================
 		NAV MENU
 	=========================*/
-	$('.navbar-nav li a').on("click", function (e) {
+	$('.navbar-nav li a').on('click', function () {
 		$('.navbar-nav li').removeClass('active');
-		var $parent = $(this).parent();
-		if (!$parent.hasClass('active')) {
-			$parent.addClass('active');
-		}
+		$(this).parent().addClass('active');
+		// close the mobile menu after choosing an item
+		var $collapse = $('#navbar');
+		if ($collapse.hasClass('in')) { $collapse.collapse('hide'); }
 	});
 
 	/* =========================
-		CAROUSEL 
+		MENU TABS (Speisekarte)
 	=========================*/
-
-	$(document).ready(function () {
-		$("#owl-demo").owlCarousel({
-			autoPlay: 3000, //Set AutoPlay to 3 seconds
-			items: 3,
-			itemsDesktop: [1199, 3],
-			itemsDesktopSmall: [979, 2]
-
-		});
-	});
-
-	/* ========================
-		SLIDER - TAB 
-	=============================*/
-
-
-	$('.slider-single').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		arrows: false,
-		fade: false,
-		adaptiveHeight: true,
-		infinite: false,
-		useTransform: true,
-		speed: 400,
-		cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
-	});
-
-	$('.slider-nav')
-		.on('init', function (event, slick) {
-			$('.slider-nav .slick-slide.slick-current').addClass('is-active');
-		})
-		.slick({
-			slidesToShow: 4,
-			slidesToScroll: 7,
-			dots: false,
-			focusOnSelect: false,
-			infinite: false,
-			responsive: [{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 4,
-				}
-			}, {
-				breakpoint: 769,
-				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 4,
-				}
-			}, {
-				breakpoint: 420,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 3,
-				}
-			}]
-		});
-
-	$('.slider-single').on('afterChange', function (event, slick, currentSlide) {
-		$('.slider-nav').slick('slickGoTo', currentSlide);
-		var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
-		$('.slider-nav .slick-slide.is-active').removeClass('is-active');
-		$(currrentNavSlideElem).addClass('is-active');
-	});
-
-	$('.slider-nav').on('click', '.slick-slide', function (event) {
-		event.preventDefault();
-		var goToSingleSlide = $(this).data('slick-index');
-
-		$('.slider-single').slick('slickGoTo', goToSingleSlide);
-	});
-
-
-	/* ========================
-		WOW ANIMATION
-	=============================*/
-
-	new WOW().init();
-
-	/* ========================
-		DATE/TIME PICKER
-	=============================*/
-
-	var date = new Date();
-	var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-	$('#date-picker').datetimepicker({
-		format: 'DD.MM.YYYY',
-		minDate: today
-	});
-	$('#time-picker').datetimepicker({
-		format: 'LT'
-	});
-
-	/* ==============================================
-		SELECTPICKER
-	=============================================== */
-
-	$('.selectpicker').selectpicker();
-
-	/* ==============================================
-		PRELOADER
-	=============================================== */
-
-
-	$(window).load(function () {
-		$("#status").fadeOut("slow");
-		$("#loader").delay(200).fadeOut();
-	})
-
-
-
-	/* ==============================================
-		SCROLL UP
-	=============================================== */
-
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 100) {
-			$('.scrollup').fadeIn();
-		} else {
-			$('.scrollup').fadeOut();
+	$('.menu-nav a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		$(e.relatedTarget).attr('aria-selected', 'false');
+		$(e.target).attr('aria-selected', 'true');
+		// keep the active tab visible in the horizontally scrolling tab bar (mobile)
+		var nav = this.parentNode.parentNode;
+		var li = this.parentNode;
+		if (nav.scrollWidth > nav.clientWidth) {
+			nav.scrollLeft = li.offsetLeft - (nav.clientWidth - li.offsetWidth) / 2;
 		}
+	}).on('keydown', function (e) {
+		// arrow keys move between tabs (WAI-ARIA tabs pattern)
+		if (e.which !== 37 && e.which !== 39) { return; }
+		var $tabs = $('.menu-nav a[data-toggle="tab"]');
+		var i = $tabs.index(this) + (e.which === 39 ? 1 : -1);
+		var $next = $tabs.eq((i + $tabs.length) % $tabs.length);
+		$next.tab('show').trigger('focus');
+		e.preventDefault();
 	});
 
-	$('.scrollup').click(function () {
-		$("html, body").animate({ scrollTop: 0 }, 600);
-		return false;
-	});
+	/* =========================
+		GALLERY LIGHTBOX
+		One modal for all photos: arrows, keyboard (← →), swipe.
+	=========================*/
+	var $links = $('a.gal-link');
+	var $box = $('#gallery-lightbox');
+	if ($links.length && $box.length) {
+		var $img = $box.find('.lightbox-img');
+		var $cap = $box.find('.lightbox-caption');
+		var $count = $box.find('.lightbox-counter');
+		var current = 0;
+		var preload = function (i) {
+			var n = ($links.length + i) % $links.length;
+			(new Image()).src = $links.eq(n).attr('href');
+		};
+		var show = function (i) {
+			current = ($links.length + i) % $links.length;
+			var $a = $links.eq(current);
+			var alt = $a.find('img').attr('alt') || '';
+			$img.attr({ src: $a.attr('href'), alt: alt });
+			$cap.text(alt);
+			$count.text((current + 1) + ' / ' + $links.length);
+			preload(current + 1);
+			preload(current - 1);
+		};
 
-	/* ================================================
-		COLOR PANEL OPEN/CLOSE
-	================================================ */
-
-	$("#color-panel .panel-button").click(function () {
-		$("#color-panel").toggleClass("close-color-panel", "open-color-panel", 1000);
-		$("#color-panel").toggleClass("open-color-panel", "close-color-panel", 1000);
-		return false;
-	});
-	// Color Skins
-	$('.switcher').click(function () {
-		var title = jQuery(this).attr('title');
-		jQuery('#changeable-colors').attr('href', 'css/colors/' + title + '.css');
-		return false;
-	});
-
-	jQuery(".orange-bg").on('click', function () {
-		jQuery(".logo-header img").attr("src", "images/logo.png");
-		jQuery(".footer-logo .text-center img").attr("src", "images/logo.png");
-		return false;
-	});
-
-	jQuery(".strong-blue-bg").on('click', function () {
-		jQuery(".logo-header img").attr("src", "images/logo2.png");
-		jQuery(".footer-logo .text-center img").attr("src", "images/logo2.png");
-		return false;
-	});
-
-	jQuery(".moderate-green-bg").on('click', function () {
-		jQuery(".logo-header img").attr("src", "images/logo3.png");
-		jQuery(".footer-logo .text-center img").attr("src", "images/logo3.png");
-		return false;
-	});
-
-	jQuery(".vivid-yellow-bg").on('click', function () {
-		jQuery(".logo-header img").attr("src", "images/logo4.png");
-		jQuery(".footer-logo .text-center img").attr("src", "images/logo4.png");
-		return false;
-	});
-
-	/* ==============================================
-		PARALLAX
-	=============================================== */
-
-	$.fn.parallax = function (options) {
-
-		var windowHeight = $(window).height();
-
-		// Establish default settings
-		var settings = $.extend({
-			speed: 0.15
-		}, options);
-
-		// Iterate over each object in collection
-		return this.each(function () {
-
-			// Save a reference to the element
-			var $this = $(this);
-
-			// Set up Scroll Handler
-			$(document).scroll(function () {
-
-				var scrollTop = $(window).scrollTop();
-				var offset = $this.offset().top;
-				var height = $this.outerHeight();
-
-				// Check if above or below viewport
-				if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
-					return;
-				}
-
-				var yBgPosition = Math.round((offset - scrollTop) * settings.speed);
-
-				// Apply the Y Background Position to Set the Parallax Effect
-				$this.css('background-position', 'center ' + yBgPosition + 'px');
-
+		$links.each(function (i) {
+			var link = this;
+			$(link).on('click', function (e) {
+				e.preventDefault();
+				show(i);
+				$box.modal('show');
 			});
+			// warm up the full-size image when the visitor points at / touches / focuses a thumbnail
+			var warm = function () {
+				(new Image()).src = link.getAttribute('href');
+				['mouseenter', 'touchstart', 'focus'].forEach(function (type) {
+					link.removeEventListener(type, warm);
+				});
+			};
+			['mouseenter', 'touchstart', 'focus'].forEach(function (type) {
+				link.addEventListener(type, warm, { passive: true });
+			});
+		});
+
+		$box.find('.lightbox-prev').on('click', function () { show(current - 1); });
+		$box.find('.lightbox-next').on('click', function () { show(current + 1); });
+
+		$box.on('keydown', function (e) {
+			if (e.which === 37) { show(current - 1); e.preventDefault(); }
+			if (e.which === 39) { show(current + 1); e.preventDefault(); }
+		});
+
+		var touchX = null;
+		$box[0].addEventListener('touchstart', function (e) {
+			touchX = e.touches.length === 1 ? e.touches[0].clientX : null;
+		}, { passive: true });
+		$box[0].addEventListener('touchend', function (e) {
+			if (touchX === null) { return; }
+			var dx = e.changedTouches[0].clientX - touchX;
+			if (Math.abs(dx) > 50) { show(current + (dx < 0 ? 1 : -1)); }
+			touchX = null;
+		}, { passive: true });
+
+		// return focus to the thumbnail that was open last
+		$box.on('hidden.bs.modal', function () {
+			$links.eq(current).trigger('focus');
 		});
 	}
 
-	$('.parallax').parallax({
-		speed: 0.15
-	});
+	/* =========================
+		GALLERY CAROUSEL
+		Native horizontal scrolling with scroll-snap (swipe / trackpad / keyboard);
+		arrows and dots move one "page" (the photos currently visible).
+	=========================*/
+	var track = document.querySelector('.gal-track');
+	if (track) {
+		var carousel = track.parentNode;
+		var slides = track.querySelectorAll('.gal-slide');
+		var prevBtn = carousel.querySelector('.gal-prev');
+		var nextBtn = carousel.querySelector('.gal-next');
+		var dotsBox = carousel.querySelector('.gal-dots');
+		var status = carousel.querySelector('.gal-status');
+		var MAX_DOTS = 12; // more pages than this (phones: 1 photo per page) -> "3 / 24" counter instead of dots
+		var perPage = 1, pages = 1, step = 0, lastPage = -1;
 
-	/* ==============================================
-		CONTACT FORM
-   =============================================== */
-	jQuery(document).ready(function () {
-		$('#contact-form').submit(function () {
-			var action = $(this).attr('action');
-			$("#message").slideUp(750, function () {
-				$('#message').hide();
-				$('#submit')
-					.after('<img src="images/ajax-loader.gif" class="loader" />')
-					.attr('disabled', 'disabled');
-				$.post(action, {
-					first_name: $('#first_name').val(),
-					email: $('#email').val(),
-					phone: $('#phone').val(),
-					no_of_persons: $('#no_of_persons').val(),
-					preferred_food: $('#preferred_food').val(),
-					occasion: $('#occasion').val(),
-					verify: $('#verify').val()
-				},
-					function (data) {
-						document.getElementById('message').innerHTML = data;
-						$('#message').slideDown('slow');
-						$('#contact-form img.loader').fadeOut('slow', function () {
-							$(this).remove()
-						});
-						$('#submit').removeAttr('disabled');
-						if (data.match('success') != null) $('#contact-form').slideUp('slow');
-					}
-				);
-			});
-			return false;
+		var measure = function () {
+			var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+			step = slides[0].getBoundingClientRect().width + gap;
+			perPage = Math.max(1, Math.round((track.clientWidth + gap) / step));
+			pages = Math.ceil(slides.length / perPage);
+			dotsBox.innerHTML = '';
+			if (pages <= MAX_DOTS) {
+				for (var i = 0; i < pages; i++) {
+					var d = document.createElement('button');
+					d.type = 'button';
+					d.className = 'gal-dot';
+					d.tabIndex = -1;
+					d.setAttribute('data-page', i);
+					dotsBox.appendChild(d);
+				}
+			} else {
+				var c = document.createElement('span');
+				c.className = 'gal-counter';
+				dotsBox.appendChild(c);
+			}
+			lastPage = -1;
+			lastFirst = -1;
+			update();
+		};
+
+		var lastFirst = -1;
+		var update = function () {
+			var maxScroll = track.scrollWidth - track.clientWidth;
+			var atEnd = track.scrollLeft >= maxScroll - 2;
+			var first = atEnd ? slides.length - perPage : Math.round(track.scrollLeft / step);
+			var page = atEnd ? pages - 1 : Math.min(pages - 1, Math.round(first / perPage));
+			prevBtn.disabled = track.scrollLeft <= 2;
+			nextBtn.disabled = atEnd;
+			if (first === lastFirst && page === lastPage) { return; }
+			lastFirst = first;
+			lastPage = page;
+			var dots = dotsBox.querySelectorAll('.gal-dot');
+			for (var i = 0; i < dots.length; i++) { dots[i].classList.toggle('active', i === page); }
+			var counter = dotsBox.querySelector('.gal-counter');
+			var from = Math.min(slides.length, first + 1);
+			var to = Math.min(slides.length, first + perPage);
+			if (counter) { counter.textContent = from + ' / ' + slides.length; }
+			status.textContent = 'Fotos ' + from + (to > from ? ' bis ' + to : '') + ' von ' + slides.length;
+		};
+
+		var goTo = function (page) {
+			page = Math.max(0, Math.min(pages - 1, page));
+			track.scrollTo({ left: page * perPage * step, behavior: reduceMotion ? 'auto' : 'smooth' });
+		};
+
+		prevBtn.addEventListener('click', function () { goTo(lastPage - 1); });
+		nextBtn.addEventListener('click', function () { goTo(lastPage + 1); });
+		dotsBox.addEventListener('click', function (e) {
+			var p = e.target.getAttribute && e.target.getAttribute('data-page');
+			if (p !== null && p !== undefined) { goTo(parseInt(p, 10)); }
 		});
-	});
 
+		var ticking = false;
+		track.addEventListener('scroll', function () {
+			if (ticking) { return; }
+			ticking = true;
+			window.requestAnimationFrame(function () { ticking = false; update(); });
+		}, { passive: true });
+
+		var resizeTimer;
+		window.addEventListener('resize', function () {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(measure, 150);
+		});
+
+		// after browsing in the lightbox, bring the last viewed photo into the carousel view
+		$('#gallery-lightbox').on('hide.bs.modal', function () {
+			var link = $links.eq(current)[0];
+			if (link) {
+				var slide = link.parentNode;
+				track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - (parseFloat(getComputedStyle(track).paddingLeft) || 0), behavior: 'auto' });
+			}
+		});
+
+		measure();
+	}
+
+	/* ========================
+		WOW ANIMATION (skipped when the visitor prefers reduced motion)
+	=============================*/
+	if (!reduceMotion) {
+		new WOW().init();
+	}
 
 })(jQuery);

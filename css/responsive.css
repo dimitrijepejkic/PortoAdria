@@ -407,3 +407,132 @@
 		font-size: 16px;
 	}
 }
+
+/*------------------------------------------------------------------
+    SITE IMPROVEMENTS: responsive overrides (kept last on purpose)
+-------------------------------------------------------------------*/
+
+/* phones: banner fills the screen and the photo is scaled to fit
+   (was background-size: inherit, i.e. the photo at its natural size) */
+@media (max-width: 768px) {
+	.banner {
+		min-height: 560px !important;
+		height: 100vh;
+		height: 100svh;
+		background-size: cover;
+		background-position: center;
+		background-attachment: scroll;
+	}
+
+	.banner-text h1 {
+		padding-top: 70px;
+	}
+
+	.banner-text h2 {
+		line-height: 60px;
+		padding-bottom: 15px;
+	}
+}
+
+/* touch devices ignore or mishandle "fixed" backgrounds (iOS) */
+@media (hover: none) and (pointer: coarse) {
+	.banner {
+		background-attachment: scroll;
+	}
+}
+
+@media (max-width: 767px) {
+	.btn-porto {
+		min-width: 0;
+		width: 100%;
+		max-width: 320px;
+	}
+
+	.menu-nav {
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		margin: 20px -15px 30px;
+		padding: 0 15px 4px;
+		-webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+		mask-image: linear-gradient(to right, #000 85%, transparent);
+	}
+
+	.menu-nav::-webkit-scrollbar {
+		display: none;
+	}
+
+	.menu-nav > li {
+		flex: 0 0 auto;
+	}
+
+	.menu-panes > .tab-pane {
+		column-count: 1;
+	}
+
+	.menu-item-desc {
+		padding-right: 0;
+	}
+
+	.gal-container .gallery-lightbox .modal-dialog {
+		margin: 50px auto 20px;
+		padding: 0 10px;
+	}
+
+	.lightbox-img {
+		max-height: calc(100vh - 170px);
+	}
+
+	.lightbox-prev {
+		left: 8px;
+	}
+
+	.lightbox-next {
+		right: 8px;
+	}
+
+	.gallery-lightbox button.close {
+		top: -15px;
+		right: -2px;
+	}
+}
+
+/* gallery carousel: 2 photos on tablets, 1 + a peek of the next one on phones */
+@media (max-width: 1240px) {
+	.gal-prev {
+		left: -8px;
+	}
+
+	.gal-next {
+		right: -8px;
+	}
+}
+
+@media (max-width: 991px) {
+	.gal-slide {
+		flex-basis: calc((100% - 20px) / 2);
+	}
+}
+
+@media (max-width: 767px) {
+	.gal-carousel {
+		margin: 0 -15px;
+	}
+
+	.gal-track {
+		gap: 14px;
+		padding-left: 15px;
+		padding-right: 15px;
+		scroll-padding-left: 15px;
+	}
+
+	.gal-slide {
+		flex-basis: 82%;
+	}
+
+	.gal-arrow {
+		display: none;
+	}
+}
