@@ -1540,6 +1540,11 @@ h6 a{
     color: #c4c4c4;
 }
 
+.footer-box-d ul li span a {
+    color: #fff;
+    text-decoration: underline !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .banner-cell .mouse:after,
     .wow {

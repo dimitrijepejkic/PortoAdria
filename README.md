@@ -47,6 +47,13 @@ The gallery is a horizontal carousel (`.gal-track` in `index.html`); a click ope
 
 Arrows, dots and the lightbox pick up new slides automatically.
 
+### Season break ("Saisonpause") on/off
+During the season break the page shows "Feiern & Catering" instead of "Tisch reservieren", a "Saisonpause"
+section instead of "Reservierung", and "Zurzeit Saisonpause" in the footer instead of the off-season hours.
+Every place is marked with an HTML comment `<!-- SAISON: ... -->` that contains the in-season text.
+To start the new season, search `index.html` for `SAISON`, restore the commented text, and remove the
+season-break text. Also change the WhatsApp/e-mail texts in the reservation buttons back to "Tisch reservieren".
+
 ### Change opening hours
 The hours appear in the footer of `index.html` **and** on the poster image `images/1.jpeg` (about section).
 Keep them consistent. Once they're settled, add `openingHoursSpecification` to the JSON-LD block in `<head>`.
