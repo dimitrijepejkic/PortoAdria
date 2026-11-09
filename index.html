@@ -7,44 +7,77 @@
 
     <!-- Basic -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>Restaurant Porto Adria</title>
-    <meta name="keywords"
-        content="restaurants near me, food near me, porto adria, restaurant, mexican restaurants, italian restaurants, porto adria restaurant, restaurant porto adria, balkan">
+    <title>Restaurant Porto Adria in Waabs – Balkanküche, Steaks &amp; Fisch</title>
+    <meta name="description"
+        content="Restaurant Porto Adria in Waabs: Balkanküche, Steak- &amp; Filetspezialitäten, Fisch und vegetarische Gerichte, dazu Weine aus Kroatien &amp; Montenegro.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <meta name="description" content="Genießen Sie in unserem Restaurant den kulinarischen Genuss des Balkans. Unsere reichhaltige Speisekarte hält für jeden Geschmack etwas bereit. Im netten Ambiente
-    servieren wir Ihnen frisch zubereitete und liebevoll angerichtete Steak- &
-    Filetspezialitäten, sowie verschiedene Fisch- und vegetarische Gerichte.">
-    <!-- <meta name="author" content=""> -->
+    <link rel="canonical" href="https://portoadria.de/">
 
-    <link rel="canonical" href="https://portoadria.de/index.html">
+    <!-- Social sharing (Open Graph / Twitter) -->
+    <meta property="og:type" content="restaurant.restaurant">
+    <meta property="og:site_name" content="Restaurant Porto Adria">
+    <meta property="og:title" content="Restaurant Porto Adria in Waabs – Genuss aus dem Balkan">
+    <meta property="og:description"
+        content="Balkanküche, Steak- &amp; Filetspezialitäten, Fisch und vegetarische Gerichte in Waabs.">
+    <meta property="og:url" content="https://portoadria.de/">
+    <meta property="og:image" content="https://portoadria.de/images/banner.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured data (local business). Opening hours intentionally omitted until
+         the footer and the "Neue Öffnungszeiten" poster agree. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Restaurant Porto Adria",
+        "url": "https://portoadria.de/",
+        "image": "https://portoadria.de/images/banner.jpg",
+        "logo": "https://portoadria.de/images/logo.png",
+        "telephone": "+49 4352 9549029",
+        "email": "porto.adria@mail.de",
+        "servesCuisine": "Balkanküche",
+        "hasMenu": "https://portoadria.de/images/Menu.pdf",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dorfstraße 21",
+            "postalCode": "24369",
+            "addressLocality": "Waabs",
+            "addressCountry": "DE"
+        },
+        "sameAs": [
+            "https://www.instagram.com/restaurant_porto_adria_waabs"
+        ]
+    }
+    </script>
 
     <!-- Site Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="manifest" href="images/site.webmanifest">
-    <!-- Bootstrap CSS -->
+
+    <!-- Preload above-the-fold assets -->
+    <link rel="preload" as="image" href="images/banner.jpg">
+    <link rel="preload" as="font" type="font/woff2" href="fonts/roboto/roboto-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="fonts/nautilus-webfont.woff2" crossorigin>
+
+    <!-- Stylesheets: order matters (same cascade order as the former @import chain) -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- color -->
-    <link id="changeable-colors" rel="stylesheet" href="css/colors/orange.css" />
-
-    <!-- Modernizer
-    <script src="js/modernizer.js"></script> -->
-
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="css/colors/orange.css">
 
 </head>
 
@@ -58,9 +91,6 @@
 
         gtag('config', 'G-PEY0WJDTB4');
     </script>
-    <!-- <div id="loader">
-        <div id="status"></div>
-    </div> -->
     <div id="site-header">
         <header id="header" class="header-block-top">
             <div class="container">
@@ -77,8 +107,8 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="logo">
-                                    <a class="navbar-brand js-scroll-trigger logo-header" href="index.html">
-                                        <img src="images/logoHeader.png" alt="Logo" width="300px">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="./">
+                                        <img src="images/logoHeader.png" alt="Restaurant Porto Adria" width="300px">
                                     </a>
                                 </div>
                             </div>
@@ -111,10 +141,10 @@
                     <div class="banner-text">
                         <div class="banner-cell">
                             <h1>Abendessen mit uns <span class="typer" id="some-id" data-delay="200" data-delim=":"
-                                    data-words="Freunde:Familie:Kolegen" data-colors="red"></span><span class="cursor"
-                                    data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                                    data-words="Freunde:Familie:Kollegen" data-colors="red" aria-hidden="true"></span><span class="cursor"
+                                    data-cursorDisplay="_" data-owner="some-id" aria-hidden="true"></span><span class="sr-only">Freunden, Familie und Kollegen</span></h1>
                             <h2>Genuss aus dem Balkan</h2>
-                            <a href="#about">
+                            <a href="#about" aria-label="Weiter zu Über uns">
                                 <div class="mouse"></div>
                             </a>
                         </div>
@@ -165,7 +195,9 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <div class="about-images">
-                            <img class="about-main" src="images/1.jpeg" width="350px" alt="About Main Image">
+                            <img class="about-main" src="images/thumbs/1.jpg" srcset="images/thumbs/1.jpg 760w, images/1.jpeg 1145w"
+                                sizes="350px" width="350px" loading="lazy" decoding="async"
+                                alt="Aushang: Neue Öffnungszeiten außer Saison. Montag bis Donnerstag geschlossen, Freitag bis Sonntag 17:00 bis 22:00 Uhr. Feiern ab 20 Personen an jedem Tag möglich. Reservierungen nur über WhatsApp 015252593884 oder E-Mail.">
                             <!-- <img class="about-inset" src="images/special-menu.jpg" width="150px" alt="About Inset Image"> -->
                         </div>
                     </div>
@@ -190,7 +222,7 @@
                         </p>
                     </div>
                     <div class="tab-menu">
-                        <a href="images/Menu.pdf" download="Menü">Speisekarte Download</a>
+                        <a href="images/Menu.pdf" download="Speisekarte-Porto-Adria.pdf" aria-label="Speisekarte Download (PDF)">Speisekarte Download</a>
                     </div>
                     <!-- end tab-menu -->
                 </div>
@@ -218,17 +250,18 @@
                     <div class="gal-container clearfix">
                         <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#1">
-                                    <img src="images/portoGalerry.png" alt="Lachs mit geggtilltem Gemüse und Reis" />
+                                <a href="#" data-toggle="modal" data-target="#gal-1">
+                                    <img src="images/thumbs/portoGalerry.jpg" srcset="images/thumbs/portoGalerry.jpg 760w, images/portoGalerry.jpg 1179w"
+                                        sizes="(min-width: 1200px) 750px, (min-width: 992px) 630px, 100vw"
+                                        alt="Lachs mit gegrilltem Gemüse und Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="1" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-1" tabindex="-1" role="dialog" aria-label="Lachs mit gegrilltem Gemüse und Reis">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGalerry.png"
-                                                    alt="Lachs mit geggtilltem Gemüse und Reis" />
+                                                <img src="images/portoGalerry.jpg" alt="Lachs mit gegrilltem Gemüse und Reis" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -237,16 +270,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#2">
-                                    <img src="images/dno.jpg" alt="Fleischmischung" />
+                                <a href="#" data-toggle="modal" data-target="#gal-2">
+                                    <img src="images/thumbs/dno.jpg" srcset="images/thumbs/dno.jpg 760w, images/dno.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Gemischte Fleischplatte" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="2" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-2" tabindex="-1" role="dialog" aria-label="Gemischte Fleischplatte">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/dno.jpg" alt="Fleischmischung" />
+                                                <img src="images/dno.jpg" alt="Gemischte Fleischplatte" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -255,16 +290,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#3">
-                                    <img src="images/portoGallery2.png" alt="Brot mit soßen" />
+                                <a href="#" data-toggle="modal" data-target="#gal-3">
+                                    <img src="images/thumbs/portoGallery2.jpg" srcset="images/thumbs/portoGallery2.jpg 760w, images/portoGallery2.jpg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Brot mit Soßen und Dips" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="3" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-3" tabindex="-1" role="dialog" aria-label="Brot mit Soßen und Dips">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery2.png" alt="Brot mit soßen" />
+                                                <img src="images/portoGallery2.jpg" alt="Brot mit Soßen und Dips" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -273,17 +310,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#4">
-                                    <img src="images/cevapi.jpg" alt="Cevapi mit zwiebel und pommes" />
+                                <a href="#" data-toggle="modal" data-target="#gal-4">
+                                    <img src="images/thumbs/cevapi.jpg" srcset="images/thumbs/cevapi.jpg 760w, images/cevapi.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Ćevapi mit Zwiebeln und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="4" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-4" tabindex="-1" role="dialog" aria-label="Ćevapi mit Zwiebeln und Pommes">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery3.png"
-                                                    alt="Cevapi mit zwiebel und pommes" />
+                                                <img src="images/cevapi.jpg" alt="Ćevapi mit Zwiebeln und Pommes" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -292,16 +330,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#5">
-                                    <img src="images/portoGallery4.png" alt="Schnaps/Rakija" />
+                                <a href="#" data-toggle="modal" data-target="#gal-5">
+                                    <img src="images/thumbs/portoGallery4.jpg" srcset="images/thumbs/portoGallery4.jpg 760w, images/portoGallery4.jpg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Schnaps / Rakija" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="5" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-5" tabindex="-1" role="dialog" aria-label="Schnaps / Rakija">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery4.png" alt="Schnaps/Rakija" />
+                                                <img src="images/portoGallery4.jpg" alt="Schnaps / Rakija" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -310,16 +350,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#9">
-                                    <img src="images/portoGallery5.jpg" alt="Fleisch mit soßen" />
+                                <a href="#" data-toggle="modal" data-target="#gal-6">
+                                    <img src="images/thumbs/portoGallery5.jpg" srcset="images/thumbs/portoGallery5.jpg 760w, images/portoGallery5.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="9" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-6" tabindex="-1" role="dialog" aria-label="Fleisch mit Soße und Pommes">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery5.jpg" alt="Fleisch mit soßen" />
+                                                <img src="images/portoGallery5.jpg" alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -328,16 +370,18 @@
                         </div>
                         <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#10">
-                                    <img src="images/portoGallery6.jpg" alt="Fleisch mit soßen" />
+                                <a href="#" data-toggle="modal" data-target="#gal-7">
+                                    <img src="images/thumbs/portoGallery6.jpg" srcset="images/thumbs/portoGallery6.jpg 760w, images/portoGallery6.jpg 1536w"
+                                        sizes="(min-width: 1200px) 750px, (min-width: 992px) 630px, 100vw"
+                                        alt="Fleisch mit heller Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="10" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-7" tabindex="-1" role="dialog" aria-label="Fleisch mit heller Soße und Pommes">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery6.jpg" alt="Fleisch mit soßen" />
+                                                <img src="images/portoGallery6.jpg" alt="Fleisch mit heller Soße und Pommes" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -346,16 +390,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#11">
-                                    <img src="images/portoGallery7.jpg" alt="Frittierter Käse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-8">
+                                    <img src="images/thumbs/portoGallery7.jpg" srcset="images/thumbs/portoGallery7.jpg 760w, images/portoGallery7.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Frittierter Käse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="11" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-8" tabindex="-1" role="dialog" aria-label="Frittierter Käse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery7.jpg" alt="Frittierter Käse" />
+                                                <img src="images/portoGallery7.jpg" alt="Frittierter Käse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -364,16 +410,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#12">
-                                    <img src="images/portoGallery8.jpg" alt="Gegrilltes Gemüse mit Reis" />
+                                <a href="#" data-toggle="modal" data-target="#gal-9">
+                                    <img src="images/thumbs/portoGallery8.jpg" srcset="images/thumbs/portoGallery8.jpg 760w, images/portoGallery8.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Gegrilltes Gemüse mit Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="12" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-9" tabindex="-1" role="dialog" aria-label="Gegrilltes Gemüse mit Reis">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery8.jpg" alt="Gegrilltes Gemüse mit Reis" />
+                                                <img src="images/portoGallery8.jpg" alt="Gegrilltes Gemüse mit Reis" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -382,17 +430,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#13">
-                                    <img src="images/portoGallery9.jpg" alt="Hähnchen mit Pommes und Gemüse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-10">
+                                    <img src="images/thumbs/portoGallery9.jpg" srcset="images/thumbs/portoGallery9.jpg 760w, images/portoGallery9.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Hähnchen mit Pommes und Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="13" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-10" tabindex="-1" role="dialog" aria-label="Hähnchen mit Pommes und Gemüse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery9.jpg"
-                                                    alt="Hähnchen mit Pommes und Gemüse" />
+                                                <img src="images/portoGallery9.jpg" alt="Hähnchen mit Pommes und Gemüse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -401,16 +450,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#14">
-                                    <img src="images/portoGallery10.jpg" alt="Gegrilltes Gemüse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-11">
+                                    <img src="images/thumbs/portoGallery10.jpg" srcset="images/thumbs/portoGallery10.jpg 760w, images/portoGallery10.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Gegrilltes Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="14" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-11" tabindex="-1" role="dialog" aria-label="Gegrilltes Gemüse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery10.jpg" alt="Gegrilltes Gemüse" />
+                                                <img src="images/portoGallery10.jpg" alt="Gegrilltes Gemüse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -419,16 +470,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#15">
-                                    <img src="images/portoGallery11.jpg" alt="Fleisch mit soßen" />
+                                <a href="#" data-toggle="modal" data-target="#gal-12">
+                                    <img src="images/thumbs/portoGallery11.jpg" srcset="images/thumbs/portoGallery11.jpg 760w, images/portoGallery11.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="15" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-12" tabindex="-1" role="dialog" aria-label="Fleisch mit Soße und Pommes">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery11.jpg" alt="Fleisch mit soßen" />
+                                                <img src="images/portoGallery11.jpg" alt="Fleisch mit Soße und Pommes" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -437,16 +490,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#16">
-                                    <img src="images/portoGallery12.jpg" alt="Fleisch mit pommes" />
+                                <a href="#" data-toggle="modal" data-target="#gal-13">
+                                    <img src="images/thumbs/portoGallery12.jpg" srcset="images/thumbs/portoGallery12.jpg 760w, images/portoGallery12.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch mit Pommes" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="16" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-13" tabindex="-1" role="dialog" aria-label="Fleisch mit Pommes">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery12.jpg" alt="Fleisch mit pommes" />
+                                                <img src="images/portoGallery12.jpg" alt="Fleisch mit Pommes" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -455,17 +510,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#17">
-                                    <img src="images/portoGallery13.jpg" alt="Fleisch mit Zwiebeln und Reis" />
+                                <a href="#" data-toggle="modal" data-target="#gal-14">
+                                    <img src="images/thumbs/portoGallery13.jpg" srcset="images/thumbs/portoGallery13.jpg 760w, images/portoGallery13.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch mit Zwiebeln und Reis" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="17" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-14" tabindex="-1" role="dialog" aria-label="Fleisch mit Zwiebeln und Reis">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery13.jpg"
-                                                    alt="Fleisch mit Zwiebeln und Reis" />
+                                                <img src="images/portoGallery13.jpg" alt="Fleisch mit Zwiebeln und Reis" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -474,16 +530,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#18">
-                                    <img src="images/portoGallery14.jpg" alt="Fleisch in Soße" />
+                                <a href="#" data-toggle="modal" data-target="#gal-15">
+                                    <img src="images/thumbs/portoGallery14.jpg" srcset="images/thumbs/portoGallery14.jpg 760w, images/portoGallery14.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch in Soße" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="18" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-15" tabindex="-1" role="dialog" aria-label="Fleisch in Soße">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery14.jpg" alt="Fleisch in Soße" />
+                                                <img src="images/portoGallery14.jpg" alt="Fleisch in Soße" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -492,16 +550,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#19">
-                                    <img src="images/portoGallery15.jpg" alt="Hühnerfleisch mit Gemüse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-16">
+                                    <img src="images/thumbs/portoGallery15.jpg" srcset="images/thumbs/portoGallery15.jpg 760w, images/portoGallery15.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Hähnchenfleisch mit Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="19" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-16" tabindex="-1" role="dialog" aria-label="Hähnchenfleisch mit Gemüse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery15.jpg" alt="Hühnerfleisch mit Gemüse" />
+                                                <img src="images/portoGallery15.jpg" alt="Hähnchenfleisch mit Gemüse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -510,16 +570,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#20">
-                                    <img src="images/portoGallery16.jpg" alt="Salat mit Paprika und Käse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-17">
+                                    <img src="images/thumbs/portoGallery16.jpg" srcset="images/thumbs/portoGallery16.jpg 760w, images/portoGallery16.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Salat mit Paprika und Käse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="20" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-17" tabindex="-1" role="dialog" aria-label="Salat mit Paprika und Käse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery16.jpg" alt="Salat mit Paprika und Käse" />
+                                                <img src="images/portoGallery16.jpg" alt="Salat mit Paprika und Käse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -528,16 +590,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#21">
-                                    <img src="images/portoGallery17.jpg" alt="Fleisch und Gemüse" />
+                                <a href="#" data-toggle="modal" data-target="#gal-18">
+                                    <img src="images/thumbs/portoGallery17.jpg" srcset="images/thumbs/portoGallery17.jpg 760w, images/portoGallery17.jpg 1536w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Fleisch und Gemüse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="21" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-18" tabindex="-1" role="dialog" aria-label="Fleisch und Gemüse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery17.jpg" alt="Fleisch und Gemüse" />
+                                                <img src="images/portoGallery17.jpg" alt="Fleisch und Gemüse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -546,16 +610,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#22">
-                                    <img src="images/portoGallery18.jpg" alt="Salat" />
+                                <a href="#" data-toggle="modal" data-target="#gal-19">
+                                    <img src="images/thumbs/portoGallery18.jpg" srcset="images/thumbs/portoGallery18.jpg 760w, images/portoGallery18.jpg 945w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Salat" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="22" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-19" tabindex="-1" role="dialog" aria-label="Salat">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGallery18.jpg" alt="Salat" />
+                                                <img src="images/portoGallery18.jpg" alt="Salat" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -564,16 +630,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#23">
-                                    <img src="images/portoAdriaBalcony.jpg" alt="Restaurant garden" />
+                                <a href="#" data-toggle="modal" data-target="#gal-20">
+                                    <img src="images/thumbs/portoAdriaBalcony.jpg" srcset="images/thumbs/portoAdriaBalcony.jpg 760w, images/portoAdriaBalcony.jpg 2048w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Festzelt mit gedeckten Tischen im Außenbereich" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="23" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-20" tabindex="-1" role="dialog" aria-label="Festzelt mit gedeckten Tischen im Außenbereich">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoAdriaBalcony.jpg" alt="Restaurant garden" />
+                                                <img src="images/portoAdriaBalcony.jpg" alt="Festzelt mit gedeckten Tischen im Außenbereich" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -582,16 +650,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#24">
-                                    <img src="images/portoGarden.png" alt="Restaurant garden" />
+                                <a href="#" data-toggle="modal" data-target="#gal-21">
+                                    <img src="images/thumbs/portoGarden.jpg" srcset="images/thumbs/portoGarden.jpg 760w, images/portoGarden.jpg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Terrasse mit Sonnenschirmen bei Sonnenschein" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="24" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-21" tabindex="-1" role="dialog" aria-label="Terrasse mit Sonnenschirmen bei Sonnenschein">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGarden.png" alt="Restaurant garden" />
+                                                <img src="images/portoGarden.jpg" alt="Terrasse mit Sonnenschirmen bei Sonnenschein" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -600,16 +670,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#24">
-                                    <img src="images/portoGarden1.png" alt="Restaurant garden" />
+                                <a href="#" data-toggle="modal" data-target="#gal-22">
+                                    <img src="images/thumbs/portoGarden1.jpg" srcset="images/thumbs/portoGarden1.jpg 760w, images/portoGarden1.jpg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Terrasse mit Sonnenschirmen und Lichterketten am Abend" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="24" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-22" tabindex="-1" role="dialog" aria-label="Terrasse mit Sonnenschirmen und Lichterketten am Abend">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGarden1.png" alt="Restaurant garden" />
+                                                <img src="images/portoGarden1.jpg" alt="Terrasse mit Sonnenschirmen und Lichterketten am Abend" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -618,16 +690,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#24">
-                                    <img src="images/portoGarden2.png" alt="Restaurant garden" />
+                                <a href="#" data-toggle="modal" data-target="#gal-23">
+                                    <img src="images/thumbs/portoGarden2.jpg" srcset="images/thumbs/portoGarden2.jpg 760w, images/portoGarden2.jpg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Restaurant Porto Adria von außen am Abend" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="24" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-23" tabindex="-1" role="dialog" aria-label="Restaurant Porto Adria von außen am Abend">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGarden2.png" alt="Restaurant garden" />
+                                                <img src="images/portoGarden2.jpg" alt="Restaurant Porto Adria von außen am Abend" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -636,16 +710,18 @@
                         </div>
                         <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                             <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#24">
-                                    <img src="images/portoGarden3.jpeg" alt="Restaurant garden" />
+                                <a href="#" data-toggle="modal" data-target="#gal-24">
+                                    <img src="images/thumbs/portoGarden3.jpg" srcset="images/thumbs/portoGarden3.jpg 760w, images/portoGarden3.jpeg 1179w"
+                                        sizes="(min-width: 1200px) 370px, (min-width: 992px) 310px, (min-width: 768px) 50vw, 100vw"
+                                        alt="Gedeckte Tische im Zelt auf der Terrasse" loading="lazy" decoding="async" />
                                 </a>
-                                <div class="modal fade" id="24" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="gal-24" tabindex="-1" role="dialog" aria-label="Gedeckte Tische im Zelt auf der Terrasse">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                aria-label="Schließen"><span aria-hidden="true">×</span></button>
                                             <div class="modal-body">
-                                                <img src="images/portoGarden3.jpeg" alt="Restaurant garden" />
+                                                <img src="images/portoGarden3.jpeg" alt="Gedeckte Tische im Zelt auf der Terrasse" loading="lazy" decoding="async" />
                                             </div>
                                         </div>
                                     </div>
@@ -671,7 +747,7 @@
                     <div class="footer-in-main">
                         <div class="footer-logo">
                             <div class="text-center">
-                                <img src="images/logo.png" alt="logo" />
+                                <img src="images/logo.png" alt="Restaurant Porto Adria" />
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -683,8 +759,8 @@
                                 <ul class="socials-box footer-socials pull-left">
                                     <li>
                                         <a href="https://www.instagram.com/restaurant_porto_adria_waabs?igsh=MzRlODBiNWFlZA=="
-                                            target="_blank">
-                                            <div class="social-circle-border"><i class="fa  fa-instagram"></i></div>
+                                            target="_blank" rel="noopener noreferrer" aria-label="Porto Adria auf Instagram">
+                                            <div class="social-circle-border"><i class="fa  fa-instagram" aria-hidden="true"></i></div>
                                         </a>
                                     </li>
                                 </ul>
@@ -703,7 +779,7 @@
                                 <p>
                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                     <span>
-                                        <a href="tel:+4943529549029">+4943 529549029</a>
+                                        <a href="tel:+4943529549029">+49 4352 9549029</a>
                                     </span>
                                 </p>
                                 <p>
@@ -752,8 +828,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <h6 class="copy-title"> Copyright &copy; 2026. Porto Adria. <a href="#"
-                                    target="_blank">Developed by: D.P</a>
+                            <h6 class="copy-title"> Copyright &copy; 2026. Porto Adria. <a href="#">Developed by: D.P</a>
                             </h6>
                         </div>
                     </div>
@@ -767,16 +842,10 @@
     </div>
     <!-- end footer-main -->
 
-    <a href="#" class="scrollup" style="display: none;">Scroll</a>
-
-
-    <!-- ALL JS FILES -->
+    <!-- JS: jQuery + Typer + WOW, Bootstrap 3 plugins, site behaviour -->
     <script src="js/all.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <!-- Modernizer -->
-    <script src="js/modernizer.js"></script>
 </body>
 
 </html>

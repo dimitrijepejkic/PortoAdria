@@ -1,0 +1,9 @@
+# Visual-regression output and temporary browser profiles
+vr-*/
+vr-profile-*/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/

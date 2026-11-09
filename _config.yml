@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) build settings: keep developer files off the public site.
+exclude:
+  - README.md
+  - WEBSITE_AUDIT_REPORT.md
+  - tools
