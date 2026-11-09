@@ -1818,6 +1818,173 @@ h6 a{
 }
 
 /*------------------------------------------------------------------
+    GALLERY CAROUSEL
+-------------------------------------------------------------------*/
+
+.gal-carousel {
+    position: relative;
+    padding: 10px 0 0;
+}
+
+.gal-track {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px 0 24px;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gal-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gal-track:focus-visible {
+    outline: 2px solid #e75b1e;
+    outline-offset: 4px;
+}
+
+.gal-slide {
+    flex: 0 0 calc((100% - 40px) / 3);
+    margin: 0;
+    list-style: none;
+    scroll-snap-align: start;
+}
+
+.gal-slide .gal-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: #d4d4d4;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.gal-slide .gal-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gal-slide .gal-link::after {
+    content: "\e003";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(231, 91, 30, 0.55);
+    color: #fff;
+    font-family: 'Glyphicons Halflings';
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gal-slide .gal-link:hover img {
+    transform: scale(1.05);
+}
+
+.gal-slide .gal-link:hover::after {
+    opacity: 1;
+}
+
+.gal-caption {
+    margin: 14px 0 0;
+    padding: 0 6px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.gal-arrow {
+    position: absolute;
+    top: calc(50% - 40px);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background: #e75b1e;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    color: #fff;
+    font-size: 18px;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.gal-arrow:hover {
+    background: #c94a12;
+}
+
+.gal-arrow[disabled] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gal-prev {
+    left: -25px;
+}
+
+.gal-next {
+    right: -25px;
+}
+
+.gal-dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 12px;
+}
+
+.gal-dot {
+    width: 11px;
+    height: 11px;
+    padding: 0;
+    background: #b5b5b5;
+    border: 0;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.gal-dot.active {
+    background: #e75b1e;
+    transform: scale(1.25);
+}
+
+.gal-counter {
+    color: #666;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gal-track {
+        scroll-behavior: auto;
+    }
+
+    .gal-slide .gal-link img {
+        transition: none;
+    }
+}
+
+/*------------------------------------------------------------------
     KEYBOARD FOCUS (accessibility)
     Shown only for keyboard navigation (:focus-visible), never on mouse
     click or touch. Overrides the template's "outline: none !important".

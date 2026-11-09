@@ -498,3 +498,41 @@
 		right: -2px;
 	}
 }
+
+/* gallery carousel: 2 photos on tablets, 1 + a peek of the next one on phones */
+@media (max-width: 1240px) {
+	.gal-prev {
+		left: -8px;
+	}
+
+	.gal-next {
+		right: -8px;
+	}
+}
+
+@media (max-width: 991px) {
+	.gal-slide {
+		flex-basis: calc((100% - 20px) / 2);
+	}
+}
+
+@media (max-width: 767px) {
+	.gal-carousel {
+		margin: 0 -15px;
+	}
+
+	.gal-track {
+		gap: 14px;
+		padding-left: 15px;
+		padding-right: 15px;
+		scroll-padding-left: 15px;
+	}
+
+	.gal-slide {
+		flex-basis: 82%;
+	}
+
+	.gal-arrow {
+		display: none;
+	}
+}

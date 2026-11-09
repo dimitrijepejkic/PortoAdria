@@ -38,10 +38,14 @@ GitHub Pages serves the `master` branch; the custom domain is set in `CNAME`.
 ## Common tasks
 
 ### Add a gallery photo
+The gallery is a horizontal carousel (`.gal-track` in `index.html`); a click opens the shared lightbox.
 1. Put the full-size JPEG (about 1500 px wide is plenty) in `images/`.
 2. Create a 760 px wide copy with the same aspect ratio in `images/thumbs/` (same base name, `.jpg`).
-3. Copy an existing `gal-item` block in `index.html` and give it the **next unique** `gal-N` id (both `data-target="#gal-N"` and `id="gal-N"`).
-4. Set `src`/`srcset` (the `1536w` value is the full image's real pixel width) and a German `alt` text.
+3. Copy an existing `<li class="gal-slide">` block in `index.html` to where the photo should appear.
+4. Set the link `href` (full image), the `img` `src`/`srcset` (the second `srcset` value is the full image's real
+   pixel width), and a German `alt` text. Use the same text for the visible `gal-caption`.
+
+Arrows, dots and the lightbox pick up new slides automatically.
 
 ### Change opening hours
 The hours appear in the footer of `index.html` **and** on the poster image `images/1.jpeg` (about section).

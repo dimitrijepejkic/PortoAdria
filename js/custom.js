@@ -84,7 +84,7 @@
 		GALLERY LIGHTBOX
 		One modal for all photos: arrows, keyboard (← →), swipe.
 	=========================*/
-	var $links = $('.gal-item a.gal-link');
+	var $links = $('a.gal-link');
 	var $box = $('#gallery-lightbox');
 	if ($links.length && $box.length) {
 		var $img = $box.find('.lightbox-img');
@@ -148,6 +148,104 @@
 		$box.on('hidden.bs.modal', function () {
 			$links.eq(current).trigger('focus');
 		});
+	}
+
+	/* =========================
+		GALLERY CAROUSEL
+		Native horizontal scrolling with scroll-snap (swipe / trackpad / keyboard);
+		arrows and dots move one "page" (the photos currently visible).
+	=========================*/
+	var track = document.querySelector('.gal-track');
+	if (track) {
+		var carousel = track.parentNode;
+		var slides = track.querySelectorAll('.gal-slide');
+		var prevBtn = carousel.querySelector('.gal-prev');
+		var nextBtn = carousel.querySelector('.gal-next');
+		var dotsBox = carousel.querySelector('.gal-dots');
+		var status = carousel.querySelector('.gal-status');
+		var MAX_DOTS = 12; // more pages than this (phones: 1 photo per page) -> "3 / 24" counter instead of dots
+		var perPage = 1, pages = 1, step = 0, lastPage = -1;
+
+		var measure = function () {
+			var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+			step = slides[0].getBoundingClientRect().width + gap;
+			perPage = Math.max(1, Math.round((track.clientWidth + gap) / step));
+			pages = Math.ceil(slides.length / perPage);
+			dotsBox.innerHTML = '';
+			if (pages <= MAX_DOTS) {
+				for (var i = 0; i < pages; i++) {
+					var d = document.createElement('button');
+					d.type = 'button';
+					d.className = 'gal-dot';
+					d.tabIndex = -1;
+					d.setAttribute('data-page', i);
+					dotsBox.appendChild(d);
+				}
+			} else {
+				var c = document.createElement('span');
+				c.className = 'gal-counter';
+				dotsBox.appendChild(c);
+			}
+			lastPage = -1;
+			lastFirst = -1;
+			update();
+		};
+
+		var lastFirst = -1;
+		var update = function () {
+			var maxScroll = track.scrollWidth - track.clientWidth;
+			var atEnd = track.scrollLeft >= maxScroll - 2;
+			var first = atEnd ? slides.length - perPage : Math.round(track.scrollLeft / step);
+			var page = atEnd ? pages - 1 : Math.min(pages - 1, Math.round(first / perPage));
+			prevBtn.disabled = track.scrollLeft <= 2;
+			nextBtn.disabled = atEnd;
+			if (first === lastFirst && page === lastPage) { return; }
+			lastFirst = first;
+			lastPage = page;
+			var dots = dotsBox.querySelectorAll('.gal-dot');
+			for (var i = 0; i < dots.length; i++) { dots[i].classList.toggle('active', i === page); }
+			var counter = dotsBox.querySelector('.gal-counter');
+			var from = Math.min(slides.length, first + 1);
+			var to = Math.min(slides.length, first + perPage);
+			if (counter) { counter.textContent = from + ' / ' + slides.length; }
+			status.textContent = 'Fotos ' + from + (to > from ? ' bis ' + to : '') + ' von ' + slides.length;
+		};
+
+		var goTo = function (page) {
+			page = Math.max(0, Math.min(pages - 1, page));
+			track.scrollTo({ left: page * perPage * step, behavior: reduceMotion ? 'auto' : 'smooth' });
+		};
+
+		prevBtn.addEventListener('click', function () { goTo(lastPage - 1); });
+		nextBtn.addEventListener('click', function () { goTo(lastPage + 1); });
+		dotsBox.addEventListener('click', function (e) {
+			var p = e.target.getAttribute && e.target.getAttribute('data-page');
+			if (p !== null && p !== undefined) { goTo(parseInt(p, 10)); }
+		});
+
+		var ticking = false;
+		track.addEventListener('scroll', function () {
+			if (ticking) { return; }
+			ticking = true;
+			window.requestAnimationFrame(function () { ticking = false; update(); });
+		}, { passive: true });
+
+		var resizeTimer;
+		window.addEventListener('resize', function () {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(measure, 150);
+		});
+
+		// after browsing in the lightbox, bring the last viewed photo into the carousel view
+		$('#gallery-lightbox').on('hide.bs.modal', function () {
+			var link = $links.eq(current)[0];
+			if (link) {
+				var slide = link.parentNode;
+				track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - (parseFloat(getComputedStyle(track).paddingLeft) || 0), behavior: 'auto' });
+			}
+		});
+
+		measure();
 	}
 
 	/* ========================
